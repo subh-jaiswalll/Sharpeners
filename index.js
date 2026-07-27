@@ -20,36 +20,42 @@ const PORT  = 3000;
 //     next();
 // })
 
-// GET /orders - Respond with "Here is the list of all orders."
+
+// GET /products - Respond with "Here is the list of all products."
 
 
 
-// POST /orders - Respond with "A new order has been created."
+// POST /products - Respond with "A new product has been added."
 
 
 
-// GET /users - Respond with "Here is the list of all users."
+// GET /categories - Respond with "Here is the list of all categories."
 
 
 
-// POST /users - Respond with "A new user has been added."
+// POST /categories - Respond with "A new category has been created."
 
 
-app.get("/orders", (req, res) => {
-    res.send("Here is the list of all orders")
+app.get("/products", (req, res) => {
+    res.send("Here is the list of all products")
 })
 
-app.post('/orders', (req, res) => {
+app.post('/products', (req, res) => {
 
-    res.send(' A new order has been created...')
+    res.send(' A new product has been created...')
 })
 
-app.get('/users', (req, res) => {
-    res.send('Here is the list of all users...')
+app.get('/categories', (req, res) => {
+    res.send('Here is the list of all categories...')
 })
 
-app.post('/users', (req, res) => {
-    res.send('A new user has been created...')
+app.post('/categories', (req, res) => {
+    res.send('A new categories has been created...')
 })
+
+app.use((req, res) => {
+    res.status(404).send('<h1>404 - Page Not Found</h1>');
+});
+
 
 app.listen(PORT, () => console.log(`Server is running at PORT ${PORT}`))
