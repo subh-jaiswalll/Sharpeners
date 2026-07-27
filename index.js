@@ -8,7 +8,7 @@ const PORT  = 3000;
 
 const userRoutes = require('./routes/userRoutes.js');
 
-const productRoutes = require('./routes/products.js');
+const productRoutes = require('./routes/productsRoutes.js');
 
 const cartRoutes = require('./routes/cart.js');
 
