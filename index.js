@@ -5,6 +5,10 @@ const app = express();
 
 const PORT  = 3000;
 
+const orderRoutes = require('./routes/orders.js');
+
+
+app.use('/orders', orderRoutes);
 // app.use((req, res, next) => {
 //     console.log("Book Library");
 //     next();
