@@ -5,11 +5,11 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    res.send("Here is list of all orders")
+    res.send("Here is list of all books")
 })
 
 router.post('/', (req, res) => {
-    res.send("Add the orders..")
+    res.send("Book has been added..")
 })
 
 

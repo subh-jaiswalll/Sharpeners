@@ -8,49 +8,44 @@ const PORT  = 3000;
 const orderRoutes = require('./routes/orders.js');
 
 
-app.use('/orders', orderRoutes);
-// app.use((req, res, next) => {
-//     console.log("Book Library");
-//     next();
-// })
+app.use('/books', orderRoutes);
+// Deliverables:
 
-// app.use((req, res, next) => {
-//     console.log("Book Recomdation");
-//     next();
-// })
-
-// app.use('/library1', (req, res, next) => {
-//     res.send("<h1> Library 1 </h1>");
-//     next();
-// })
+// 1.Set Up the Server
 
 
 
-app.get("/welcome/:name", (req, res) => {
-    const name = req.params.name;
-    const role = req.query.role;
-    res.send(`Welcome ${name}, your role is ${role}`)
-})
-
-app.get('/products', (req, res) => {
-    res.send('Here is the list of all products...')
-})
-app.post('/products', (req, res) => {
-
-    res.send(' A new product has been created...')
-})
-
-app.get('/categories', (req, res) => {
-    res.send('Here is the list of all categories...')
-})
-
-app.post('/categories', (req, res) => {
-    res.send('A new categories has been created...')
-})
-app.use((req, res, next) => {
-    console.log(`${req.method} request made to ${req.url}`);
-    next();
-});
 
 
+// Use Express.js to create a server.
+
+
+
+
+// 2.Create the Routes (API Endpoints) You need to create these routes:(Make sure you are using router for this)
+
+
+
+
+
+// GET /books: Print a message and send a response like "Here is the list of books!".
+
+
+
+// POST /books: Print the book data sent in the request and send a message like "Book has been added!".
+
+
+
+
+// 3.Test Your API
+
+
+
+
+
+// Use Postman or any API testing tool to test your endpoints.
+
+
+
+// Ensure that GET requests return the correct message and POST requests log the received data.
 app.listen(PORT, () => console.log(`Server is running at PORT ${PORT}`))
