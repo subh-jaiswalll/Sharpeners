@@ -5,47 +5,51 @@ const app = express();
 
 const PORT  = 3000;
 
-const orderRoutes = require('./routes/orders.js');
+const studentRoutes = require('./routes/studentRoutes.js');
 
-
-app.use('/books', orderRoutes);
-// Deliverables:
-
-// 1.Set Up the Server
+const courseRoutes = require('./routes/courseRoutes.js');
 
 
 
 
+app.use('/student', studentRoutes);
 
-// Use Express.js to create a server.
+app.use('/course', courseRoutes);
 
+app.use(express.json());
 
-
-
-// 2.Create the Routes (API Endpoints) You need to create these routes:(Make sure you are using router for this)
-
-
-
-
-
-// GET /books: Print a message and send a response like "Here is the list of books!".
+app.get("/", (req, res) => {
+  res.send("Welcome to the Student & Course Portal API!");
+})
 
 
-
-// POST /books: Print the book data sent in the request and send a message like "Book has been added!".
+app.use((req, res) => {
+  res.status(404).send('Page not found')
+})
 
 
 
+// Home Route:
+// GET /
+// Response: "Welcome to the Student & Course Portal API!"
+// Student Routes:
+// GET /students
+// Response: "Students: Alice, Bob, Charlie
+// GET /students/1
+// Response: "Student: Alice"
+// GET /students/99
+// Response: "Student not found
+// Course Routes:
+// GET /courses
+// Response: "Courses: Frontend, Backend"
+// GET /courses/1
+// Response: "Course: Frontend, Description: HTML, CSS, JS, React"
+// GET /courses/99
+// Response: "Course not found
+// Invalid Route:
+// Example: GET /invalid
+// Response: "Page not found"
 
-// 3.Test Your API
 
 
-
-
-
-// Use Postman or any API testing tool to test your endpoints.
-
-
-
-// Ensure that GET requests return the correct message and POST requests log the received data.
 app.listen(PORT, () => console.log(`Server is running at PORT ${PORT}`))
