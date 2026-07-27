@@ -5,50 +5,31 @@ const app = express();
 
 const PORT  = 3000;
 
-const studentRoutes = require('./routes/studentRoutes.js');
 
-const courseRoutes = require('./routes/courseRoutes.js');
+const userRoutes = require('./routes/userRoutes.js');
 
+const productRoutes = require('./routes/products.js');
 
+const cartRoutes = require('./routes/cart.js');
 
+app.use('/users', userRoutes);
 
-app.use('/student', studentRoutes);
+app.use('/products', productRoutes);
 
-app.use('/course', courseRoutes);
+app.use('/carts', cartRoutes);
 
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Welcome to the Student & Course Portal API!");
-})
-
-
-app.use((req, res) => {
-  res.status(404).send('Page not found')
-})
-
-
-
-// Home Route:
-// GET /
-// Response: "Welcome to the Student & Course Portal API!"
-// Student Routes:
-// GET /students
-// Response: "Students: Alice, Bob, Charlie
-// GET /students/1
-// Response: "Student: Alice"
-// GET /students/99
-// Response: "Student not found
-// Course Routes:
-// GET /courses
-// Response: "Courses: Frontend, Backend"
-// GET /courses/1
-// Response: "Course: Frontend, Description: HTML, CSS, JS, React"
-// GET /courses/99
-// Response: "Course not found
-// Invalid Route:
-// Example: GET /invalid
-// Response: "Page not found"
+// Expected Output Example
+// For /users routes:
+// GET /users returns: "Fetching all users"
+// POST /users returns: "Adding a new user".
+// GET /users/:id returns: "Fetching user with ID: id".
+// For /products routes:
+// GET /products returns: "Fetching all products".
+// POST /products returns: "Adding a new product".
+// GET /products/:id returns: "Fetching product with ID: id".
+// For /cart routes:
+// GET /cart/:userId returns: "Fetching cart for user with ID: userId".
+// POST /cart/:userId returns: "Adding product to cart for user with ID: userId".
 
 
 
