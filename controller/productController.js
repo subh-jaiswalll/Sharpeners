@@ -16,8 +16,11 @@ const getAllProductsById = (req, res) => {
 }
 
 const addProduct = (req, res) => {
-    const result = productService.addProduct();
-    res.send(result)
+    
+    const data = req.body;
+
+    console.log(data);
+    res.json({value : data.productName})
 }
 module.exports = {
     getAllProducts,
